@@ -1,4 +1,7 @@
-<div id="slider" class="slider-big">
-    <h1>Bienvenido al Master en React</h1>
-    <a href="blog.html" class="btn-white">Ir al Blog</a>
+<div id="slider" [ngClass]="{
+    'slider-big': !tamano || tamano == 'big',
+    'slider-small': tamano || tamano == 'small'
+}">
+    <h1>{{nombre}}</h1>
+    <a href="blog.html" class="btn-white" *ngIf=" !tamano || tamano == 'big'">Ir al Blog</a>
 </div>
