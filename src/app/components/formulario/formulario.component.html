@@ -1,1 +1,61 @@
-<p>formulario works!</p>
+<div class="center">
+    <section id="content">
+        <h1>Formulario</h1>
+        <!--
+        <div *ngIf="nombre">
+            <h2>El nombre del servicios es: {{nombre}}</h2>
+        </div>
+
+        <div *ngIf="!nombre">
+            <h2>No hay parametros en la URL</h2>
+        </div>-->
+
+        <form class="mid-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre" required
+                    pattern="[a-zA-Z]+" />
+                <small *ngIf="!nombre.valid && nombre.touched">
+                    Nombre no valido.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellidos</label>
+                <input type="text" name="apellido" #apellido="ngModel" [(ngModel)]="user.apellido" required
+                    pattern="[a-z A-Z]+" />
+                <small *ngIf="!apellido.valid && apellido.touched">
+                    Apellidos no validos.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="bio">Biografia</label>
+                <select id="hmo" placeholder="Seleccione una cuenta.">
+                    <h4>Cuentas Santader</h4>
+                    <option *ngFor="let cuenta of cuentas">
+                        <h4>Cuentas Santader</h4><br>
+                        {{cuenta.title}}
+                    </option>
+
+                    <option *ngFor="let cuent of cuentasF">
+                        <h4>Cuentas Externas</h4><br>
+                        {{cuent.title}}
+                    </option>
+                </select>
+                <small>
+                    Biografia sin datos.
+                </small>
+            </div>
+            <div class="form-group radibuttons">
+                <input type="radio" name="genero" value="hombre" #genero="ngModel" [(ngModel)]="user.genero" required />
+                Hombre
+                <input type="radio" name="genero" value="mujer" #genero="ngModel" [(ngModel)]="user.genero" /> Mujer
+                <input type="radio" name="genero" value="otro" #genero="ngModel" [(ngModel)]="user.genero" /> Otro
+            </div>
+            <div class="clearfix"></div>
+            <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid" />
+        </form>
+        <br />
+    </section>
+    <app-sidebar></app-sidebar>
+    <div class="clearfix"></div>
+</div>
