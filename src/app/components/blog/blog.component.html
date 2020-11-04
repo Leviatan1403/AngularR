@@ -7,14 +7,14 @@
 
         <h2 *ngIf="!nombre">{{mensaje}}</h2>
         <div id="articles">
-            <article class="article-item" id="article-template" *ngFor="let telefono of telefonos">
+            <article class="article-item" id="article-template" *ngFor="let articulo of resultado">
                 <div class="image-wrap">
-                    <img src="{{telefono.imagen}}" />
+                    <img src="#" />
                 </div>
-                <h2>Modelo: {{telefono.modelo}}</h2>
-                <h3>Marca: {{telefono.marca}}</h3>
-                <h3>Camara: {{telefono.cam}}</h3>
-                <span class="date">{{date}}</span>
+                <h2>Titulo: {{articulo.title}}</h2>
+                <h3>ID: {{articulo._id}}</h3>
+                <h3>Contenido: {{articulo.content}}</h3>
+                <span class="date">{{articulo.date}}</span>
                 <div class="clearfix"></div>
             </article>
         </div>

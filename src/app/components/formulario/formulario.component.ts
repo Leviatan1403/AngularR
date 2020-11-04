@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { CuentasService } from '../../service/articulo.service';
-import { cuentas } from '../../models/cuentas.model';
+//import { CuentasService } from '../../service/articulo.service';
+//import { cuentas } from '../../models/cuentas.model';
 import { cuentasF } from '../../models/cuentasF.model';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css'],
-  providers: [CuentasService]
+  //providers: [CuentasService]
 })
 export class FormularioComponent implements OnInit {
  public user: any;
- public cuentas: cuentas[];
+ //public cuentas: cuentas[];
  public cuentasF: cuentasF[];
-  constructor(private _cuentasService: CuentasService) {
+  constructor() {
     this.user = {
       nombre: '',
       apellido: '',
@@ -23,30 +23,7 @@ export class FormularioComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this._cuentasService.getCuentas(true).subscribe(
-      Response => {
-        if(Response.articles){
-          this.cuentas = Response.articles;
-        }else{
-
-        }
-      },error => {
-        console.log(error);
-      }
-      
-    );
-    this._cuentasService.getCuentasF(true).subscribe(
-      Response => {
-        if(Response.articles){
-          this.cuentasF = Response.articles;
-        }else{
-
-        }
-      },error => {
-        console.log(error);
-      }
-      
-    );
+    
 
     
   }

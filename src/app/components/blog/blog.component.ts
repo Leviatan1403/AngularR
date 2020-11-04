@@ -39,7 +39,18 @@ export class BlogComponent implements OnInit {
         this.nombre = params.nombre;
     });
 
-    this._articleService.getArticles(true)
+    this._articleService.getArticles(true).subscribe(
+      Response => {
+        if(Response.articles){
+          this.resultado = Response.articles;
+        }else{
+
+        }
+      }, error =>{
+        console.log(error);
+      }
+      
+    );
 
     console.log(this.nombre);
     console.log(this.telefonos);
